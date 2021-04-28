@@ -1,9 +1,6 @@
 package skamila.udpj.document.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -12,7 +9,8 @@ public class Letter extends Document {
     @Id
     private Long id;
 
-    private String addressee;
+    @ManyToOne
+    private Addressee addressee;
 
     @Override
     public Long getId() {
@@ -24,11 +22,11 @@ public class Letter extends Document {
         this.id = id;
     }
 
-    public String getAddressee() {
+    public Addressee getAddressee() {
         return addressee;
     }
 
-    public void setAddressee(String addressee) {
+    public void setAddressee(Addressee addressee) {
         this.addressee = addressee;
     }
 }
