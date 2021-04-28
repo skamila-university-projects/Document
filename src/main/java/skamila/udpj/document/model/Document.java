@@ -3,6 +3,7 @@ package skamila.udpj.document.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @MappedSuperclass
 public class Document {
@@ -17,6 +18,9 @@ public class Document {
     @Embedded
     @NotNull
     private Content content;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private Set<Tag> tags;
 
     public void setId(Long id) {
         this.id = id;
