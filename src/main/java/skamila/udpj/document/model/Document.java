@@ -1,6 +1,8 @@
 package skamila.udpj.document.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
 public class Document {
@@ -8,8 +10,12 @@ public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotBlank
     private String title;
+
     @Embedded
+    @NotNull
     private Content content;
 
     public void setId(Long id) {
