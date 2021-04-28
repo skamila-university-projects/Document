@@ -2,7 +2,7 @@ package skamila.udpj.document.model;
 
 import javax.persistence.*;
 
-@Entity
+@MappedSuperclass
 public class Document {
 
     @Id
