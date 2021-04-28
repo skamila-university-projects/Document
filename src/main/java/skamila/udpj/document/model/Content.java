@@ -13,6 +13,13 @@ public class Content {
     @Size(min = 3)
     private String value;
 
+    public Content() {
+    }
+
+    public Content(String value) {
+        this.value = value;
+    }
+
     public Long getId() {
         return id;
     }

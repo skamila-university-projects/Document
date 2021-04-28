@@ -11,6 +11,14 @@ public class Addressee {
 
     private String name;
 
+    public Addressee() {
+
+    }
+
+    public Addressee(String name) {
+        this.name = name;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

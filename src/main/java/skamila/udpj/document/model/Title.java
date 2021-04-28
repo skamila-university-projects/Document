@@ -9,6 +9,14 @@ public class Title {
     @NotBlank
     private String value;
 
+    public Title() {
+
+    }
+
+    public Title(String value) {
+        this.value = value;
+    }
+
     public String getValue() {
         return value;
     }
