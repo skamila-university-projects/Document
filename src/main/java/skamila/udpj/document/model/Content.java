@@ -1,19 +1,31 @@
 package skamila.udpj.document.model;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
-@Embeddable
+@Entity
 public class Content {
 
-    @Size(min = 3)
-    private String content;
+    @Id
+    private Long id;
 
-    public String getContent() {
-        return content;
+    @Size(min = 3)
+    private String value;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String content) {
+        this.value = content;
     }
 }

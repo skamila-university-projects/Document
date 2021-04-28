@@ -12,11 +12,11 @@ public class Document {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
-    private String title;
-
     @Embedded
     @NotNull
+    private Title title;
+
+    @OneToOne
     private Content content;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -30,11 +30,11 @@ public class Document {
         return id;
     }
 
-    public String getTitle() {
+    public Title getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(Title title) {
         this.title = title;
     }
 
