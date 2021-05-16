@@ -7,9 +7,11 @@ import javax.persistence.*;
 public class Letter extends Document {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "addressee_id", foreignKey = @ForeignKey(name = "ADDRESSEE_ID_FK"))
     private Addressee addressee;
 
     @Override

@@ -1,12 +1,12 @@
 package skamila.udpj.document.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Addressee {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -23,7 +23,6 @@ public class Addressee {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }

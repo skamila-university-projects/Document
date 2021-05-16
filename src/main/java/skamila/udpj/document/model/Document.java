@@ -1,11 +1,10 @@
 package skamila.udpj.document.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-@MappedSuperclass
+@Entity
 public class Document {
 
     @Id
@@ -16,7 +15,7 @@ public class Document {
     @NotNull
     private Title title;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Content content;
 
     @ManyToMany(fetch = FetchType.LAZY)

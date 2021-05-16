@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 public class Tag {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(unique = true)
