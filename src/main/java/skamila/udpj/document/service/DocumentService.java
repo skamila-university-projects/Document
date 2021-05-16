@@ -6,4 +6,5 @@ public interface DocumentService {
 
     void addDocument(DocumentDto documentDto);
 
+    DocumentDto getDocument(Long id);
 }

@@ -4,4 +4,6 @@ public interface AddresseeService {
 
     void addAddressee(String addressee);
 
+    String getAddressee(Long id);
+
 }

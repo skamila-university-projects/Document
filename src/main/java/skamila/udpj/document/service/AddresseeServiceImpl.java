@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import skamila.udpj.document.model.Addressee;
 import skamila.udpj.document.repository.AddresseeRepository;
 
+import java.util.Optional;
+
 @Service("addresseeService")
 public class AddresseeServiceImpl implements AddresseeService {
 
@@ -20,6 +22,13 @@ public class AddresseeServiceImpl implements AddresseeService {
     @Transactional
     public void addAddressee(String addressee) {
         addresseeRepository.save(new Addressee(addressee));
+    }
+
+    @Override
+    @Transactional
+    public String getAddressee(Long id) {
+        Optional<Addressee> addresseeOptional = addresseeRepository.findById(id);
+        return addresseeOptional.map(Addressee::getName).orElse(null);
     }
 
 }

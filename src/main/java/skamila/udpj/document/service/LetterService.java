@@ -6,4 +6,6 @@ public interface LetterService {
 
     void addLetter(LetterDto letterDto);
 
+    LetterDto getLetter(Long id);
+
 }
