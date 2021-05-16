@@ -16,7 +16,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
-class DocumentApplicationTests {
+class SaveToDatabaseTests {
 
     @Autowired
     private DocumentService documentService;

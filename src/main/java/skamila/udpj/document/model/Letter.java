@@ -3,7 +3,6 @@ package skamila.udpj.document.model;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Letter extends Document {
 
     @Id

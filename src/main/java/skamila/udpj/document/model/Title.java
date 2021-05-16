@@ -1,5 +1,6 @@
 package skamila.udpj.document.model;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
 
@@ -7,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 public class Title {
 
     @NotBlank
+    @Column(name = "title")
     private String value;
 
     public Title() {
