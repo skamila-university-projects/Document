@@ -38,4 +38,17 @@ public class DocumentServiceImpl implements DocumentService {
         Optional<Document> addresseeOptional = documentRepository.findById(id);
         return addresseeOptional.map(DocumentMapper::mapToDto).orElse(null);
     }
+
+    @Transactional
+    public void rollbackTest(DocumentDto documentDto1, DocumentDto documentDto2) {
+        List<Tag> allTags = tagtRepository.findAll();
+        documentRepository.save(DocumentMapper.mapToEntity(documentDto1, allTags));
+//        runtimeException();
+        documentRepository.save(DocumentMapper.mapToEntity(documentDto2, allTags));
+    }
+
+    private void runtimeException() {
+        throw new RuntimeException();
+    }
+
 }

@@ -63,4 +63,18 @@ class SaveToDatabaseTests {
                 .build();
         assertThrows(TransactionSystemException.class, () -> documentService.addDocument(documentDto));
     }
+
+    @Test
+    public void rollbackTest() {
+        DocumentDto documentDto1 = DocumentDto.builder()
+                .title("OOOOOOOOOOOO")
+                .content("")
+                .build();
+        DocumentDto documentDto2 = DocumentDto.builder()
+                .title("PPPPPPPPPPP")
+                .content("")
+                .build();
+        documentService.rollbackTest(documentDto1, documentDto2);
+    }
+
 }
