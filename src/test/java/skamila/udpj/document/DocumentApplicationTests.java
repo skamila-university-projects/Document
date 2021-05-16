@@ -3,6 +3,7 @@ package skamila.udpj.document;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.TransactionSystemException;
 import skamila.udpj.document.dto.DocumentDto;
 import skamila.udpj.document.dto.LetterDto;
 import skamila.udpj.document.service.AddresseeService;
@@ -11,6 +12,8 @@ import skamila.udpj.document.service.LetterService;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 class DocumentApplicationTests {
@@ -52,4 +55,12 @@ class DocumentApplicationTests {
         letterService.addLetter(letter);
     }
 
+    @Test
+    public void saveDocumentWithWrongContent() {
+        DocumentDto documentDto = DocumentDto.builder()
+                .title("Zawiadomienie")
+                .content("Dn")
+                .build();
+        assertThrows(TransactionSystemException.class, () -> documentService.addDocument(documentDto));
+    }
 }
