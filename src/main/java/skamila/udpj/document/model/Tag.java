@@ -14,11 +14,27 @@ public class Tag {
     @NotBlank
     private String tag;
 
+    public Tag() {
+
+    }
+
+    public Tag(String tag) {
+        this.tag = tag;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

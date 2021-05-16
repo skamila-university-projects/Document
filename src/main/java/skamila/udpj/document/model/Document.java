@@ -18,7 +18,7 @@ public class Document {
     @OneToOne(cascade = CascadeType.ALL)
     private Content content;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Tag> tags;
 
     public void setId(Long id) {
@@ -43,5 +43,13 @@ public class Document {
 
     public void setContent(Content content) {
         this.content = content;
+    }
+
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 }

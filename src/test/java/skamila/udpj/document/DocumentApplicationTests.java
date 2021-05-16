@@ -9,6 +9,9 @@ import skamila.udpj.document.service.AddresseeService;
 import skamila.udpj.document.service.DocumentService;
 import skamila.udpj.document.service.LetterService;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @SpringBootTest
 class DocumentApplicationTests {
 
@@ -28,9 +31,13 @@ class DocumentApplicationTests {
 
     @Test
     public void saveDocument() {
+        Set<String> tags = new HashSet<>();
+        tags.add("zawidomienie");
+        tags.add("ważne");
         DocumentDto documentDto = DocumentDto.builder()
                 .title("Zawiadomienie")
                 .content("Dnia 05-05-2021 będzie przerwa w dostawie energii elektrycznej w godzinach 8:00-10:00.")
+                .tags(tags)
                 .build();
         documentService.addDocument(documentDto);
     }
